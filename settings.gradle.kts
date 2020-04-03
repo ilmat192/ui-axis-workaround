@@ -1,0 +1,1 @@
+rootProject.name = "kotlin-native-xcode-11-4-workaround"
