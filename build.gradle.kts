@@ -14,10 +14,13 @@ repositories {
 }
 
 kotlin {
+    // The problematic headers are not available on watchOS and macOS
+    // but we build this library for them too to simplify depending on it.
     ios()
     iosArm32()
     tvos()
-    // There is no requested headers for watchOS.
+    watchos()
+    macosX64()
 
     targets.withType(KotlinNativeTarget::class.java) {
         compilations["main"].apply {
@@ -33,9 +36,12 @@ kotlin {
         }
 
         // An improvised test.
-        compilations["test"].apply {
-            tasks["check"].dependsOn(compileKotlinTask)
-            cinterops.create("testInterop")
+        val presetName = preset?.name
+        if (presetName != null && !presetName.startsWith("watch") && !presetName.startsWith("macos")) {
+            compilations["test"].apply {
+                tasks["check"].dependsOn(compileKotlinTask)
+                cinterops.create("testInterop")
+            }
         }
     }
 
