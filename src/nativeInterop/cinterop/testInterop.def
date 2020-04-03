@@ -1,0 +1,10 @@
+language = Objective-C
+
+compilerOpts = -framework UIKit
+linkerOpts = -framework UIKit
+
+---
+
+#import <UIKit/UIPointerStyle.h>
+#import <UIKit/UIKey.h>
+#import <UIKit/UIKeyConstants.h>
