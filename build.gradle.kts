@@ -1,13 +1,12 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
-    kotlin("multiplatform") version "1.3.71"
+    kotlin("multiplatform") version "1.3.72"
     `maven-publish`
 }
 
-// TODO: Determine a group/name/version.
-group = "org.jetbrains.kotlin"
-version = "1.3.71"
+group = "org.jetbrains.kotlin.native.xcode"
+version = "1.3.72.0"
 
 repositories {
     jcenter()
