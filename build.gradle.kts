@@ -53,3 +53,14 @@ kotlin {
     }
 }
 
+publishing {
+    repositories {
+        maven("https://api.bintray.com/maven/kotlin/native-xcode/kotlin-native-xcode-11-4-workaround/;publish=0") {
+            name = "bintray"
+            credentials {
+                username = System.getenv("BINTRAY_USER")
+                password = System.getenv("BINTRAY_API_KEY")
+            }
+        }
+    }
+}
